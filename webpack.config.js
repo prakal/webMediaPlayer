@@ -1,3 +1,5 @@
+const NODE_ENV = process.env.NODE_ENV;
+const dotenv = require('dotenv');
 const webpack = require('webpack');
 const fs      = require('fs');
 const path    = require('path'),
@@ -11,7 +13,6 @@ const src     = join(root, 'src');
 const modules = join(root, 'node_modules');
 const dest    = join(root, 'dist');
 
-const NODE_ENV = process.env.NODE_ENV;
 const isDev = NODE_ENV === 'development';
 
 var config = getConfig({
@@ -20,6 +21,37 @@ var config = getConfig({
   clearBeforeBuild: true
 });
 
+config.resolve.root = [src, modules]
+config.resolve.alias = {
+  'css': join(src, 'styles'),
+  'containers': join(src, 'containers'),
+  'components': join(src, 'components'),
+  'utils': join(src, 'utils')
+}
+
+// ENV variables
+const dotEnvVars = dotenv.config();
+const environmentEnv = dotenv.config({
+  path: join(root, 'config', `${NODE_ENV}.config.js`),
+  silent: true,
+});
+const envVariables =
+    Object.assign({}, dotEnvVars, environmentEnv);
+
+const defines =
+  Object.keys(envVariables)
+  .reduce((memo, key) => {
+    const val = JSON.stringify(envVariables[key]);
+    memo[`__${key.toUpperCase()}__`] = val;
+    return memo;
+  }, {
+    __NODE_ENV__: JSON.stringify(NODE_ENV)
+  });
+
+config.plugins = [
+	new webpack.DefinePlugin(defines)
+].concat(config.plugins);
+// END ENV variables
 
 config.postcss = [].concat([
   require('precss')({}),
@@ -55,6 +87,11 @@ config.module.loaders.push({
   test: /\.css$/,
   include: [modules],
   loader: 'style!css'
-})
+});
+
+config.target = 'web';
+config.node = {
+	fs: 'empty'
+};
 
 module.exports = config;
