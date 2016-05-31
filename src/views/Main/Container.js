@@ -12,11 +12,11 @@ export class Container extends React.Component {
   render() {
     var songs = [
 		  {
-		    url: 'http://101songs.com/fileDownload/Songs/128/2026.mp3',
-		    cover: 'http://www.nossoarmario.com/blog/wp-content/uploads/2015/01/redfoo.jpg',
+		    url: 'http://101songs.com/fileDownload/Songs/128/21774.mp3',
+		    cover: 'https://upload.wikimedia.org/wikipedia/en/2/23/Pharrell_Williams_-_Happy.jpg',
 		    artist: {
-		      name: 'Student of the Year - Hindi',
-		      song: 'Ishq Wala Love'
+		      name: 'Pharrell Williams',
+		      song: 'Happy'
 		    }
 		  },
 		  {
