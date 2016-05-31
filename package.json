@@ -28,6 +28,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.23.1",
     "cssnano": "^3.6.2",
+    "dotenv": "^2.0.0",
     "file-loader": "^0.8.5",
     "hjs-webpack": "^8.2.0",
     "postcss-loader": "^0.9.1",
@@ -37,9 +38,15 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "basscss": "^8.0.1",
     "font-awesome": "^4.6.3",
+    "json-loader": "^0.5.4",
     "react": "^15.1.0",
+    "react-cl-audio-player": "^1.0.0",
     "react-dom": "^15.1.0",
-    "react-router": "^2.4.1"
+    "react-music-player": "^1.0.3",
+    "react-router": "^2.4.1",
+    "react-soundplayer": "^0.3.5",
+    "webtorrent": "^0.94.2"
   }
 }
