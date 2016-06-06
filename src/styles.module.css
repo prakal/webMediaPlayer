@@ -1,3 +1,17 @@
 .wrapper {
   background: blue;
+  width: 500px;
+}
+.table {
+	display:inline-block;
+	width: 500px;
+}
+.both{
+	margin-left: 100px; 
+}
+.player{
+		margin-left: 100px; 
+
+	display:inline-block;
+	column-span: 1;
 }

@@ -1,4 +1,4 @@
-body { background: url(http://c.boylett.uk/images/wallpapers/006.jpg); background-size: cover }
+body { background: -webkit-linear-gradient(top, #b3dced 0%,#29b8e5 50%,#bce0ee 100%); }
 .musicPlayer { position: absolute !important; top: 50%; left: 50%; margin: -207px 0 0 -207px }
 
 .musicPlayer

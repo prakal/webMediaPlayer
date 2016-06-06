@@ -9,7 +9,12 @@ import styles from '../../styles.module.css'
 
 // import 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'
 export class Container extends React.Component {
+  selectSong(x){
+  	this.refs.foo.selectSong(x);
+  }
   render() {
+    this.number = 4;
+
     var songs = [
 		  {
 		    url: 'http://101songs.com/fileDownload/Songs/128/21774.mp3',
@@ -18,6 +23,14 @@ export class Container extends React.Component {
 		      name: 'Pharrell Williams',
 		      song: 'Happy'
 		    }
+		  },
+		  {
+		  	url: 'http://a.tumblr.com/tumblr_m819vt8p4s1r364xqo1.mp3',
+		  	cover: '',
+		  	artist: {
+		  		name: 'Childish Gambino',
+		  		song: 'Firefly'
+		  	}
 		  },
 		  {
 		    url: 'http://mymp3singer.net/files/download/id/110',
@@ -67,14 +80,29 @@ export class Container extends React.Component {
 		    }
 		  }
 		];
+	var songMarkup = [];
+	var self = this;
+	songs.forEach(function(item,index){
+		songMarkup.push(<div 
+			className={styles.wrapper} 
+			key={index}
+			onClick={self.selectSong.bind(self, index)}
+			> {item.artist.song} - {item.artist.name} </div>)
+	});
 	// var muteClasses = classNames(styles2.fa, styles2.fa-volume-up);
 
-		return (<h1 className={styles.wrapper}> 
-					<div> Some text here {__NODE_ENV__}</div> 
-
-					<CLAudioPlayer
-		          		songs={songs}
-		        	/>
+		return (<h1 className={styles.both}> 
+					<div> Banner Header {__NODE_ENV__}</div> 
+					<div className={styles.table}> 
+						{songMarkup}
+					</div>
+					<div className={styles.player}>
+						<CLAudioPlayer
+			          		songs={songs}
+			          		number={this.number}
+			          		ref='foo'
+			        	/>
+		        	</div>
 
 				</h1>)
   }
