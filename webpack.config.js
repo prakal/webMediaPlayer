@@ -18,7 +18,8 @@ const isDev = NODE_ENV === 'development';
 var config = getConfig({
   in: join(src, 'app.js'),
   out: dest,
-  clearBeforeBuild: true
+  clearBeforeBuild: true,
+  output: {publicPath: ""}
 });
 
 config.resolve.root = [src, modules]
@@ -88,6 +89,8 @@ config.module.loaders.push({
   include: [modules],
   loader: 'style!css'
 });
+
+
 
 config.target = 'web';
 config.node = {
