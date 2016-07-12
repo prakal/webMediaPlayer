@@ -17,7 +17,7 @@ export class Container extends React.Component {
 
     var songs = [
 		  {
-		    url: 'http://101songs.com/fileDownload/Songs/128/21774.mp3',
+		    url: 'http://ruangmp3.wapka.mobi/music/down/25466501/2750010/NzMyZHpjWG9kS040RHRjZGY3NFV1S1lBRmxrOElPOWhmVE1UeWJpalhVOFBGUXV1cGc=/Pharrell+Williams+-+Happy.mp3',
 		    cover: 'https://upload.wikimedia.org/wikipedia/en/2/23/Pharrell_Williams_-_Happy.jpg',
 		    artist: {
 		      name: 'Pharrell Williams',
